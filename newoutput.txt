@@ -1,0 +1,40 @@
+(0) A0:isAgent.iknows(A0) <= iAgents; 
+(1) A3:isUser.S3:isServer.iknows(val(ring(A3),db__valid(S3,A3),0)) <= keyReg; 
+(2) A3:isUser.S3:isServer.occurs(val(ring(A3),db__valid(S3,A3),0)) <= keyReg; 
+(3) A3:isDishon.S3:isServer.iknows(inv(val(ring(A3),db__valid(S3,A3),0))) (1) + (2) <= dishonKey; 
+(4) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,db__valid(S3,A3),0)),pair(A3,val(ring(A3),0,0)))) (1) + (2) <= userUpdateKey; 
+(5) A3:isHonest.S3:isServer.occurs(val(ring(A3),0,0)) (1) + (2) <= userUpdateKey; 
+(6) A3:isHonest.S3:isServer.timplies(val(ring(A3),db__valid(S3,A3),0)val(0,db__valid(S3,A3),0)) (1) + (2) <= userUpdateKey; 
+(7) A3:isUser.S3:isServer.occurs(val(0,db__valid(S3,A3),0)) (2) + (6) <= timplies; 
+(8) A3:isHonest.S3:isServer.iknows(inv(val(0,0,db__revoked(S3,A3)))) (4) + (7) + (5) <= serverUpdateKey; 
+(9) A3:isHonest.S3:isServer.timplies(val(0,db__valid(S3,A3),0)val(0,0,db__revoked(S3,A3))) (4) + (7) + (5) <= serverUpdateKey;
+
+--- SYNTAX ERROR ON TIMPLIES!
+
+-- actually, is there any renaming going on in the FP computation?
+
+(10) A3:isHonest.S3:isServer.timplies(val(ring(A3),0,0)val(ring(A3),db__valid(S3,A3),0)) (4) + (7) + (5) <= serverUpdateKey; 
+(11) A3:isDishon.S3:isServer.iknows(inv(val(0,db__valid(S3,A3),0))) (3) + (6) <= timplies; 
+(12) A3:isHonest.S3:isServer.iknows(val(ring(A3),0,0)) (4) + (7) + (5) <= iOpen; 
+(13) A3:isUser.S3:isServer.iknows(val(0,db__valid(S3,A3),0)) (1) + (6) <= timplies; 
+(14) A3:isUser.S3:isServer.iknows(val(0,0,db__revoked(S3,A3))) (13) + (9) <= timplies; 
+(15) A3:isUser.S3:isServer.occurs(val(0,0,db__revoked(S3,A3))) (7) + (9) <= timplies; 
+(16) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,0)),pair(A3,val(ring(A3),0,0)))) (12) + (5) <= userUpdateKey; 
+(18) A3:isHonest.S3:isServer.timplies(val(ring(A3),0,0)val(0,0,0)) (12) + (5) <= userUpdateKey; 
+(19) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,db__revoked(S3,A3))),pair(A3,val(ring(A3),0,0)))) (4) + (9) <= timplies; 
+(20) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,db__revoked(S3,A3))),pair(A3,val(0,0,0)))) (19) + (18) + (10) <= timplies; 
+(21) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,0)),pair(A3,val(0,0,0)))) (16) + (18) + (10) <= timplies; 
+(22) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,db__valid(S3,A3),0)),pair(A3,val(0,0,0)))) (4) + (18) + (10) <= timplies; 
+(23) A3:isHonest.S3:isServer.occurs(val(0,0,0)) (17) + (18) + (10) <= timplies; 
+(26) A3:isHonest.S3:isServer.timplies(val(0,0,0)val(0,db__valid(S3,A3),0)) (22) + (7) + (23) <= serverUpdateKey; 
+(27) A3:isHonest.S3:isServer.iknows(val(0,0,0)) (22) + (7) + (23) <= iOpen; 
+(28) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,db__valid(S3,A3),0)),pair(A3,val(ring(A3),db__valid(S3,A3),0)))) (4) + (10) + (18) <= timplies; 
+(29) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,db__valid(S3,A3),0)),pair(A3,val(0,db__valid(S3,A3),0)))) (22) + (26) <= timplies; 
+(30) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,0)),pair(A3,val(0,db__valid(S3,A3),0)))) (21) + (26) <= timplies; 
+(31) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,db__revoked(S3,A3))),pair(A3,val(0,db__valid(S3,A3),0)))) (20) + (26) <= timplies; 
+(32) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,db__revoked(S3,A3))),pair(A3,val(ring(A3),db__valid(S3,A3),0)))) (19) + (10) + (18) <= timplies; 
+(33) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,0)),pair(A3,val(ring(A3),db__valid(S3,A3),0)))) (16) + (10) + (18) <= timplies; 
+(34) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,db__revoked(S3,A3))),pair(A3,val(0,0,db__revoked(S3,A3))))) (31) + (9) <= timplies; 
+(35) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,0,0)),pair(A3,val(0,0,db__revoked(S3,A3))))) (30) + (9) <= timplies; 
+(36) A3:isHonest.S3:isServer.iknows(sign(inv(val(0,db__valid(S3,A3),0)),pair(A3,val(0,0,db__revoked(S3,A3))))) (29) + (9) <= timplies; 
+---end---
